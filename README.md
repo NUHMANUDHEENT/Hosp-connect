@@ -42,7 +42,7 @@ The HospConnect project utilizes the following technologies:
 
 The HospConnect project consists of the following microservices:
 
-1. **[User Management Service](./user-management)**
+1. **[User Management Service](https://github.com/NUHMANUDHEENT/hosp-connect-api-gateway.git)**
    - Handles user authentication, authorization, and role-based access control.(Admin, Doctor, Patient)
 
 2. **[Appointment Service](./appointment)**
