@@ -10,3 +10,6 @@
 [submodule "payment-service"]
 	path = payment-service
 	url = https://github.com/NUHMANUDHEENT/hosp-connect-payment-service.git
+[submodule "notification-service"]
+	path = notification-service
+	url = https://github.com/NUHMANUDHEENT/hosp-connect-notification-service.git

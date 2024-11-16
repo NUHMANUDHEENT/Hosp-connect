@@ -45,10 +45,10 @@ The HospConnect project consists of the following microservices:
 1. **[User Management Service](https://github.com/NUHMANUDHEENT/hosp-connect-api-gateway.git)**
    - Handles user authentication, authorization, and role-based access control.(Admin, Doctor, Patient)
 
-2. **[Appointment Service](./appointment)**
+2. **[Appointment Service](https://github.com/NUHMANUDHEENT/hosp-connect-appointment-service.git)**
    - Manages doctor-patient appointment scheduling and token generation.
 
-3. **[Payment Service](./payment)**
+3. **[Payment Service](https://github.com/NUHMANUDHEENT/hosp-connect-payment-service.git)**
    - Processes payments for appointments and additional treatments.
 
 4. **[Notification Service](./notification)**
