@@ -62,4 +62,4 @@ To set up the central repository and initialize submodules, follow these steps:
 
 1. Clone the central repository:
    ```bash
-   git clone https://github.com/your-username/HospConnect.git
+   git clone https://github.com/NUHMANUDHEENT/Hosp-connect.git
