@@ -1,3 +1,12 @@
 [submodule "api-gateway"]
 	path = api-gateway
 	url = https://github.com/NUHMANUDHEENT/hosp-connect-api-gateway.git
+[submodule "user-service"]
+	path = user-service
+	url = https://github.com/NUHMANUDHEENT/hosp-connect-user-service.git
+[submodule "appointment-service"]
+	path = appointment-service
+	url = https://github.com/NUHMANUDHEENT/hosp-connect-appointment-service.git
+[submodule "payment-service"]
+	path = payment-service
+	url = https://github.com/NUHMANUDHEENT/hosp-connect-payment-service.git
