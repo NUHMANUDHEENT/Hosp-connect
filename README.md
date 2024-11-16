@@ -1,13 +1,65 @@
-# HospConnect Central Repository
+# HospConnect
 
-Welcome to the **HospConnect** project! This is the central repository to track and access all individual services and modules.
+HospConnect is a modular **hospital management system** designed to simplify hospital operations and enhance the user experience for doctors, patients, and administrators. This repository acts as the **central hub** for managing and navigating the various microservices that make up the system.
 
-## Microservice Repositories
+---
 
-- [User Management Service](https://github.com/your-username/user-management-service)
-- [Appointment Service](https://github.com/your-username/appointment-service)
-- [Payment Service](https://github.com/your-username/payment-service)
-- [Notification Service](https://github.com/your-username/notification-service)
+## **Description**
 
-## Setup Guide
-Visit each repository for specific setup instructions.
+HospConnect enables seamless integration between different hospital functionalities such as:
+- User management
+- Appointment scheduling
+- Payment processing
+- Notifications for reminders and updates
+
+Each microservice operates independently, making it scalable, reliable, and easy to maintain.
+
+---
+
+## **Technology Stack**
+
+The HospConnect project utilizes the following technologies:
+
+### Backend:
+- **Programming Language:** Go (Golang)
+- **Frameworks/Libraries:** Mux, gRPC, Gorilla WebSocket
+- **Database:** PostgreSQL, Redis
+- **API Gateway:** Nginx
+- **Messaging:** Apache Kafka (for event-driven architecture)
+- **Authentication:** JWT
+
+### Infrastructure:
+- **Containerization:** Docker
+- **Orchestration:** Kubernetes
+- **CI/CD:** GitHub Actions
+- **Cloud Hosting:** AWS/GCP/Azure
+- **Logging** logrus, lumberjack
+- **Monitoring:** Prometheus, Grafana
+
+---
+
+## **Microservices**
+
+The HospConnect project consists of the following microservices:
+
+1. **[User Management Service](./user-management)**
+   - Handles user authentication, authorization, and role-based access control.(Admin, Doctor, Patient)
+
+2. **[Appointment Service](./appointment)**
+   - Manages doctor-patient appointment scheduling and token generation.
+
+3. **[Payment Service](./payment)**
+   - Processes payments for appointments and additional treatments.
+
+4. **[Notification Service](./notification)**
+   - Sends reminders, updates, and alerts for appointments, payments, and more.
+
+---
+
+## **How to Clone the Repository**
+
+To set up the central repository and initialize submodules, follow these steps:
+
+1. Clone the central repository:
+   ```bash
+   git clone https://github.com/your-username/HospConnect.git
