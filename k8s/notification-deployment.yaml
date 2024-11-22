@@ -35,11 +35,11 @@ spec:
                 name: hosp-connect-secret
                 key: APPPASSWORD
 
-          - name: APPEMAIL
-            valueFrom:
-              secretKeyRef:
-                name: hosp-connect-secret
-                key: APPEMAIL
+          # - name: APPEMAIL
+          #   valueFrom:
+          #     secretKeyRef:
+          #       name: hosp-connect-secret
+          #       key: APPEMAIL
 ---
 apiVersion: v1
 kind: Service
