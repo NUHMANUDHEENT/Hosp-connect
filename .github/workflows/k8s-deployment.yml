@@ -1,0 +1,44 @@
+name: Kubernetes Deployment
+
+on:
+  push:
+    branches: [ "master"]
+    paths:
+      - 'k8s/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the Code
+    - uses: actions/checkout@v4
+
+    # Step 2: Set up kubectl
+    - name: Install kubectl
+      run: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        chmod +x kubectl
+        sudo mv kubectl /usr/local/bin/
+
+    # Step 3: Set up doctl for DigitalOcean
+    - name: Set up Kubernetes context
+      env:
+        DO_PAT: ${{ secrets.DO_PAT }}
+      run: |
+        curl -sL https://github.com/digitalocean/doctl/releases/download/v1.98.0/doctl-1.98.0-linux-amd64.tar.gz | tar -xzv
+        sudo mv doctl /usr/local/bin/
+        doctl auth init -t $DO_PAT
+        doctl kubernetes cluster kubeconfig save k8s-1-31-1-do-4-lon1-1731914835868
+
+    # Step 4: Detect Changed Files and Apply
+    - name: Deploy only changed files
+      run: |
+        # Detect changes in the `k8s/` directory
+        CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep k8s/)
+        
+        # Loop through each changed file and apply it
+        for file in $CHANGED_FILES; do
+            echo "Applying $file..."
+            kubectl apply -f $file
+        done
