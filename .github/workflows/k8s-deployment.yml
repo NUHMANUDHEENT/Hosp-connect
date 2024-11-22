@@ -2,7 +2,7 @@ name: Kubernetes Deployment
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master","main" ]
     paths:
       - 'k8s/**'
 
