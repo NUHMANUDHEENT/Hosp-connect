@@ -56,7 +56,6 @@ The HospConnect project consists of the following microservices:
 
 ---
 
-
 ## **How to Clone the Repository**
 
 To set up the central repository and initialize submodules, follow these steps:
