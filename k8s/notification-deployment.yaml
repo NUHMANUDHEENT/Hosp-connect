@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-svc-deployment
+  labels:
+    app: notification-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-svc
+  template:
+    metadata:
+      labels:
+        app: notification-svc
+    spec:
+      containers:
+        - name: notification-svc
+          image: nuhman9260/hosp-connect-notification-svc:latest
+          env:
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: NOTIFICATION_DATABASE_URL
+          - name: KAFKA_BROKER
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: KAFKA_BROKER
+
+          - name: APPPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: APPPASSWORD
+
+          - name: APPEMAIL
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: APPEMAIL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-svc-service
+spec:
+  selector:
+    app: notification-svc
+  ports:
+    - protocol: TCP
+      port: 50053
+      targetPort: 50053
+  type: ClusterIP

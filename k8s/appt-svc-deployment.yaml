@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appt-svc-deployment
+  labels:
+    app: appt-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appt-svc
+  template:
+    metadata:
+      labels:
+        app: appt-svc
+    spec:
+      containers:
+        - name: appt-svc
+          image: nuhman9260/hosp-connect-appt-svc:latest
+          ports:
+            - containerPort: 50052
+          env:
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: APPT_DATABASE_URL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: appt-svc-service
+spec:
+  selector:
+    app: appt-svc
+  ports:
+    - protocol: TCP
+      port: 50052
+      targetPort: 50052
+  type: ClusterIP

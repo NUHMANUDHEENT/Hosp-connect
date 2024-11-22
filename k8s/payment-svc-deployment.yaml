@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-svc-deployment
+  labels:
+    app: payment-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-svc
+  template:
+    metadata:
+      labels:
+        app: payment-svc
+    spec:
+      containers:
+        - name: payment-svc
+          image: nuhman9260/hosp-connect-payment-svc:latest
+          ports:
+            - containerPort: 50053
+          env:
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: PAYMENT_DATABASE_URL
+          - name: PAYMENT_PORT
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: PAYMENT_PORT
+
+          - name: RAZORPAY_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: RAZORPAY_KEY_ID
+
+          - name: RAZORPAY_KEY_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: RAZORPAY_KEY_SECRET
+
+          - name: USER_GRPC_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: USER_GRPC_SERVER
+
+          - name: APPT_GRPC_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: APPT_GRPC_SERVER
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-svc-service
+spec:
+  selector:
+    app: payment-svc
+  ports:
+    - protocol: TCP
+      port: 50053
+      targetPort: 50053
+  type: ClusterIP

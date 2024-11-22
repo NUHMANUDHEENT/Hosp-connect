@@ -51,7 +51,7 @@ The HospConnect project consists of the following microservices:
 3. **[Payment Service](https://github.com/NUHMANUDHEENT/hosp-connect-payment-service.git)**
    - Processes payments for appointments and additional treatments.
 
-4. **[Notification Service](./notification)**
+4. **[Notification Service](https://github.com/NUHMANUDHEENT/hosp-connect-notification-service.git)**
    - Sends reminders, updates, and alerts for appointments, payments, and more.
 
 ---
