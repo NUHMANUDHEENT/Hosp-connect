@@ -25,6 +25,28 @@ spec:
               secretKeyRef:
                 name: hosp-connect-secret
                 key: APPT_DATABASE_URL
+          - name: APPT_PORT
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: APPT_PORT
+
+          - name: USER_GRPC_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: USER_GRPC_SERVER
+
+          - name: PAYMENT_GRPC_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: PAYMENT_GRPC_SERVER
+          - name: IP_ADDRESS
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: IP_ADDRESS
 ---
 apiVersion: v1
 kind: Service

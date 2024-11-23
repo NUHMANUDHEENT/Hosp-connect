@@ -54,6 +54,17 @@ spec:
               secretKeyRef:
                 name: hosp-connect-secret
                 key: APPT_GRPC_SERVER
+          - name: IP_ADDRESS
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: IP_ADDRESS
+          - name: KAFKA_BROKER
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: KAFKA_BROKER
+
 ---
 apiVersion: v1
 kind: Service

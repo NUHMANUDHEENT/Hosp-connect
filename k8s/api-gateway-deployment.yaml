@@ -25,6 +25,41 @@ spec:
               secretKeyRef:
                 name: hosp-connect-secret
                 key: USER_GRPC_SERVER
+          - name: APPT_GRPC_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: APPT_GRPC_SERVER
+          - name: PAYMENT_GRPC_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: PAYMENT_GRPC_SERVER
+          - name: CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: CLIENT_ID
+          - name: CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: CLIENT_SECRET
+          - name: MONITORING_ENABLED
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: MONITORING_ENABLED
+          - name: IP_ADDRESS
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: IP_ADDRESS
+          - name: DIALOG_FLOW_CREDENTIALS_JSON
+            valueFrom:
+              secretKeyRef:
+                name: hosp-connect-secret
+                key: DIALOG_FLOW_CREDENTIALS_JSON
 ---
 apiVersion: v1
 kind: Service
